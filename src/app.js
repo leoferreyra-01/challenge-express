@@ -145,9 +145,11 @@ server.get("/api/Appointments/getAppointments/:name", (req, res) => {
   return res.send(model.getAppointments(name, status));
 });
 
-server.get('/api/Appointments/clients', (req,res)=>{
-    res.send(model.getClients())
-})
+server.get('/api/Appointments/clients', (req, res) => {        
+    let data = model.getClients()
+    res.status(200).send(data)
+});
+
 server.listen(3000);
 
 module.exports = { model, server };
